@@ -1,20 +1,151 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            --primary: #00BCD4; /* Cyan 500 */
+            --secondary: white;
+            --background: white;
+            --accent: #FF5722; /* Deep Orange 500 */
+        }
 
-<div class="home">
+        h2, h3, a, button {
+            color: var(--primary);
+        }
 
-  <h1>Posts</h1>
+        button {
+            background-color: var(--accent);
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+        a:hover, button:hover {
+            opacity: 0.8;
+        }
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+        .main-logo {
+            width: 250px;
+            height: 75px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
 
-</div>
+        .customer-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .customer-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .customer-list li {
+            margin-bottom: 10px;
+        }
+
+        .customer-list img {
+            margin-right: 10px;
+        }
+
+        .linkedin-icon {
+            display: inline-block;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png');
+            background-size: contain;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        .footer-text {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+    </style>
+    <title>Greydom</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><img src="img/greydom-logo-wide.png" alt="Greydom Logo" class="main-logo"></li>
+        </ul>
+        <ul>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#customers">Customers</a></li>
+            <li><a href="#contact" role="button">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section id="product">
+                <hgroup>
+                    <h2>Our Product</h2>
+                    <h3>Innovative Claims Processing Platform</h3>
+                </hgroup>
+                <p>We are an innovative claims processing system specialising in pharmacy, hospital, day-to-day, and funeral claims. Our technology streamlines the claims process, making it faster, more efficient, and user-friendly for both insurers and members.</p>
+                <figure>
+                    <img src="https://source.unsplash.com/random/800x600?health-insurance" alt="Greydom Product" />
+                    <figcaption>Photo by <a href="https://unsplash.com/photos/random" target="_blank">Unsplash</a></figcaption>
+                </figure>
+            </section>
+            <section id="customers">
+                <hgroup>
+                    <h2>Our Customers</h2>
+                    <h3>Trusted Partners</h3>
+                </hgroup>
+                <ul class="customer-list">
+                  <li>
+                    <a href="https://www.affinityhealth.co.za" target="_blank">
+                        <img src="img/affinity-health-logo.jpg" alt="Affinity Health Logo" class="customer-logo">
+                        Affinity Health
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.pha.co.za" target="_blank">
+                        <img src="img/pha-logo.png" alt="Private Healthcare Administrators Logo" class="customer-logo">
+                        Private Healthcare Administrators
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.bonitas.co.za" target="_blank">
+                        <img src="img/bonitas-log.png" alt="Bonitas Logo" class="customer-logo">
+                        Bonitas
+                    </a>
+                </li>
+                <li>
+                    <a href="https://ivc.health" target="_blank">
+                        <img src="img/ivc-health-logo.jpg" alt="IVC Health Logo" class="customer-logo">
+                        IVC Health
+                    </a>
+                </li>
+                </ul>
+            </section>
+            <section id="contact">
+                <hgroup>
+                    <h2>Contact Us</h2>
+                    <h3>Get in Touch</h3>
+                </hgroup>
+                <form action="mailto:JasonCollier@Greydom.com" method="post" enctype="text/plain">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required />
+                    <input type="email" id="email" name="email" placeholder="Your Email" required />
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="container">
+      <span class="footer-text">Follow Us:</span>
+      <a href="https://www.linkedin.com/company/greydom/" target="_blank"><span class="linkedin-icon"></span></a>
+  </footer>
+</body>
+</html>
